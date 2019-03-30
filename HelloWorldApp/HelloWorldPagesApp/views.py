@@ -6,7 +6,7 @@ from django.template import loader
 
 # Create your views here.
 def index(request):
-    template = loader.get_template('HelloWorldPages/index.html')
+    template = loader.get_template('HelloWorldPagesApp/index.html')
     context = {
         'name': "test",
     }
