@@ -10,7 +10,9 @@
 {% csrf_token %}
     <input type="text" name="answer" id="answer">
     <label for="answer">Please enter your answer</label><br>
-<input type="submit" value="Send">
+    <input type="checkbox" name="yesno" id="yesno" />
+    <label for="yesno">Please check if you agree</label>
+    <input type="submit" value="Send">
 </form>
 </body>
 </html>

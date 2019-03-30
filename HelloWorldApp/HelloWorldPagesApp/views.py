@@ -8,7 +8,7 @@ from django.template import loader
 def index(request):
     template = loader.get_template('HelloWorldPagesApp/index.html')
     context = {
-        'name': "test",
+        'name': "anyhthing",
     }
     return HttpResponse(template.render(context, request))
 
@@ -21,9 +21,11 @@ def hello(request, firstName):
 
 def answer(request, firstName):
     answer = request.POST['answer']
+    yesnoanswer = request.POST['yesno']
     template = loader.get_template('HelloWorldPagesApp/answer.html')
     context = {
         'name': firstName,
-        'answer': answer
+        'answer': answer,
+        'yesno': yesnoanswer
     }
     return HttpResponse(template.render(context, request))
