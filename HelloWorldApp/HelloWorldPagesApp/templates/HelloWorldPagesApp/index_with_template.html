@@ -1,0 +1,16 @@
+{% extends "HelloWorldPagesApp/base.html" %}
+
+{% block content %}
+
+<h1>Hello {{ name }}</h1>
+<form action="{% url 'answer' name %}" method="post">
+{% csrf_token %}
+    <p class="example1">Sample paragraph</p>
+    <input type="text" name="answer" id="answer">
+    <label for="answer">Please enter your answer</label><br>
+    <input type="checkbox" name="yesno" id="yesno" />
+    <label for="yesno">Please check if you agree</label>
+    <input type="submit" value="Send">
+</form>
+
+{% endblock %}

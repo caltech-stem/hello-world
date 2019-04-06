@@ -13,7 +13,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def hello(request, firstName):
-    template = loader.get_template('HelloWorldPagesApp/index.html')
+    template = loader.get_template('HelloWorldPagesApp/index_with_template.html')
     context = {
         'name': firstName,
     }
@@ -21,8 +21,8 @@ def hello(request, firstName):
 
 def answer(request, firstName):
     answer = request.POST['answer']
-    yesnoanswer = request.POST['yesno']
-    template = loader.get_template('HelloWorldPagesApp/answer.html')
+    yesnoanswer = request.POST.get('yesno', False)
+    template = loader.get_template('HelloWorldPagesApp/answer_with_template.html')
     context = {
         'name': firstName,
         'answer': answer,
