@@ -1,14 +1,24 @@
 {% extends "HelloWorldPagesApp/base.html" %}
 
 {% block content1 %}
+<script type="text/javascript">
+function msg(){
+ alert("Hello {{ name }}");
+ document.getElementById("sample").style.color="blue"
+ document.getElementById("sample").innerText = "Hey, you did it!"
+
+
+}
+</script>
+
 
 <form action="{% url 'answer' name %}" method="post">
 {% csrf_token %}
-    <p class="example1">Sample paragraph</p>
+    <p class="example1" id="sample">Sample paragraph</p>
     <input type="text" name="answer" id="answer">
     <label for="answer" class="example1">Please enter your answer</label><br>
     <input type="checkbox" name="yesno" id="yesno" />
-    <label for="yesno">Please check if you agree</label>
+    <label for="yesno" onmouseover="msg()">Please check if you agree</label>
     <input type="submit" value="Send">
 </form>
 
