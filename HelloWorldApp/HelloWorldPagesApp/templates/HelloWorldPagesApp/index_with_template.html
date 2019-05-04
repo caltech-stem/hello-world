@@ -3,11 +3,24 @@
 {% block content1 %}
 <script type="text/javascript">
 function msg(){
- alert("Hello {{ name }}");
  document.getElementById("sample").style.color="blue"
  document.getElementById("sample").innerText = "Hey, you did it!"
+}
 
+function rev() {
+ document.getElementById("sample").style.color="red"
+ document.getElementById("sample").innerText = "No, you did not!"
 
+eatchar();
+}
+
+function eatchar(){
+    setTimeout(
+        function() {
+             document.getElementById("sample").innerText = document.getElementById("sample").innerText.substring(2);
+            eatchar();
+        },
+        1000)
 }
 </script>
 
@@ -17,7 +30,7 @@ function msg(){
     <p class="example1" id="sample">Sample paragraph</p>
     <input type="text" name="answer" id="answer">
     <label for="answer" class="example1">Please enter your answer</label><br>
-    <input type="checkbox" name="yesno" id="yesno" />
+    <input type="checkbox" name="yesno" id="yesno" onfocus="rev()" />
     <label for="yesno" onmouseover="msg()">Please check if you agree</label>
     <input type="submit" value="Send">
 </form>
